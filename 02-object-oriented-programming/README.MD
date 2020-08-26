@@ -15,6 +15,9 @@
 - What is an Object in Ruby?
 - In ruby everything is an object
 - What are the benefits of Object Oriented Programming?
+    - readable 
+    - flexible, dynamic
+    - DRY
 - What is the difference between a class and an instance?
 
 ## DEMO Deliverables
@@ -31,5 +34,4 @@ We will write an implementation of a bank account that meets the following requi
 * can deposit money into the account
 * can withdraw money from the account
 * keeps track of the account number
-* keeps track of the customer id of the account
 * Print out all the bank accounts 

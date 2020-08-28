@@ -30,7 +30,7 @@
 
 * Create a Doctor class. The class should have these methods:
   * `#initialize` which takes a name, bio, specialty, it has an attribute of accepting_new_clients with a default value of true.
-  * a reader for name, specialty and accessor for bio 
+  * a reader for name, specialty
   * a reader and write for bio and accepting_new_clients
 
   * `#patients` returns the patients that belong to this doctor 
@@ -43,7 +43,7 @@
   * `#initialize` which takes a name, age, insurance
   * a reader for name 
   * a reader and writer for age and insurance 
-  * `make_appointment` makes a new appointment for the patient
+  * `#make_appointment` makes a new appointment for the patient
   * `#doctors` returns the doctors that belong to this patient 
   * `#appointments` returns the appointments that belong to this patient 
 

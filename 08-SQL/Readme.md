@@ -114,15 +114,5 @@ JOIN albums
 ON albums.artist_id = artists.id;
 ```
 
-9. Write the SQL to display artist name, album name and number of tracks on that album
 
-```sql
-
-```
-
-10. Write the SQL to return the name of all of the artists in the 'Pop' Genre
-
-```sql
-
-```
 

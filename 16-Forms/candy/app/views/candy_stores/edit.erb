@@ -1,0 +1,34 @@
+Edit
+
+<%# <form action="/candy_stores/<%=@candy_store.id method="POST"> 
+ <%#   <input type="hidden" value="PATCH" name="_method">
+ <%#   <label for="store-name">Store Name</label>
+    <input for="store-name" type="text" name="name"/>
+    <label for="store-location">Location</label>
+    <input for="store-location" type="text" name="location"/>
+    <input type="submit">
+<%# </form> %>
+
+<%# <%= form_tag "/candy_stores/#{@candy_store.id}", method:"PATCH" do%>
+<%#    <%= label_tag :name%>
+<%#    <%= text_field_tag :name, @candy_store.name%>
+ <%#   <%= label_tag :location%>
+<%#    <%= text_field_tag :location, @candy_store.location%>
+<%#    <%= submit_tag%>
+<%# <%end%>
+
+<%# <%= form_for CandyStore.new do |f| %>
+<%#    <%= f.label :name%>
+<%#    <%= f.text_field :name%>
+ <%#   <%= f.label :location%>
+ <%#   <%= f.text_field :location%>
+
+<%# <%end%>
+
+<%= form_for @candy_store do |f| %>
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+    <%= f.label :location%>
+    <%= f.text_field :location%>
+    <%= f.submit%>
+<%end%>

@@ -1,0 +1,11 @@
+<h1><%= @candy_store.name%> </h1>
+<h1><%= @candy_store.location%> </h1>
+<h1><%= @candy_store.open == true ? "Open" : "Closed"%> </h1>
+<button><%= link_to "Edit", edit_candy_store_path(@candy_store)%></button>
+<%# <button><%= link_to "Edit", "/candy_store/#{@candy_store.id/edit}"%></button>
+
+<%# if @candy_store.open == true%>
+<%# "Open" %>
+<%# else %>
+<%# "Closed" %>
+<%# end%>

@@ -1,0 +1,9 @@
+<h1>Candy Home!</h1>
+<ul>
+<% @candy_stores.each do |store| %>
+<%# li> <%= link_to store.name, "candy_stores/#{store.id}"  %> </li>
+
+<li> <%= link_to store.name, candy_store_path(store) %> </li>
+<%end%>
+</ul>
+<button><%= link_to "New Store", new_candy_store_path%> </button>

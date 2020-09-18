@@ -1,0 +1,7 @@
+<% @candy_items.each do |candy|%>
+    <li><%= link_to candy.name, candy%>
+<% end %>
+<div>
+<button> <%= link_to "New Candy", new_candy_item_path%> </button>
+<button> <%= link_to "Candy Stores", candy_stores_path%> </button>
+</div>

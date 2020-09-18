@@ -1,0 +1,5 @@
+<h1><%= @candy_store.name%> </h1>
+<h1><%= @candy_store.location%> </h1>
+<h1><%= @candy_store.open == true ? "Open" : "Closed" %> </h1>
+<%= link_to "Edit", edit_candy_store_path(@candy_store)%>
+<%= button_to "DELETE", @candy_store, :method => :delete %>

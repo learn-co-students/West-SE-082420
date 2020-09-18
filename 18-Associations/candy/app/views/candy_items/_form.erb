@@ -1,0 +1,8 @@
+<%= form_for @candy_item do |f|%>
+    <%= f.label :name%>
+    <%= f.text_field :name%>
+    <%= f.label :price%>
+    <%= f.text_field :price%>
+   <%= f.collection_select :candy_store_id, @candy_stores, :id, :name %>
+   <%= f.submit %>
+<% end %>

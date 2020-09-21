@@ -1,0 +1,15 @@
+<%= form_for @candy_item do |f|%>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+    <%= f.collection_check_boxes :candy_store_ids, @candy_stores, :id, :name %>
+
+    <%= f.submit %>
+<%end%>
+
+<% if flash[:errors] %>
+    <% flash[:errors].each do |error|%>
+    <p style="color:red" > <%= error %> </p>
+    <% end %>
+<% end %>

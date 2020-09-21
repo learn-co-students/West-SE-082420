@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candy_store: one
+  candy_item: one
+
+two:
+  candy_store: two
+  candy_item: two

@@ -1,0 +1,5 @@
+<h1> All Candy </h1>
+<% @candy_items.each do |candy|%>
+    <li><%= link_to candy.name, candy_item_path(candy) %> </li>
+    <%# candy_items/:id %>
+<%end%>

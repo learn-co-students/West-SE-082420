@@ -1,0 +1,2 @@
+module CandyStoresHelper
+end

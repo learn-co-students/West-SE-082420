@@ -1,0 +1,6 @@
+<h1>Name: <%= @candy_item.name%> </h1>
+<h1>Price: <%= @candy_item.price%> </h1>
+<h1> Stores: </h1>
+    <% @candy_item.candy_stores.each do |item|%> 
+        <li><%= item.name%> </li>
+    <%end%>

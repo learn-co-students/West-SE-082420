@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_09_21_210524) do
 
+  create_table "candy_iitems", force: :cascade do |t|
+    t.string "name"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "candy_items", force: :cascade do |t|
     t.string "name"
     t.integer "price"

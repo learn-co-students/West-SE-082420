@@ -3,6 +3,6 @@
     <%= f.text_field :name%>
     <%= f.label :price%>
     <%= f.text_field :price%>
-   <%= f.collection_select :candy_store_id, @candy_stores, :id, :name %>
-   <%= f.submit %>
+    <%= f.collection_select :candy_store_id, @candy_stores, :id, :name %>
+    <%= f.submit %>
 <% end %>

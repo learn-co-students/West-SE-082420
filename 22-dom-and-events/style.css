@@ -1,0 +1,53 @@
+h1{
+    font-family: 'Sansita Swashed', cursive;
+    background: #008CBA;
+    color:white;
+    padding: 10px 3px 10px 10px
+}
+p, li, h2{
+    font-family: 'Noto Sans', sans-serif;
+}
+h2{
+    font-weight: 900;
+    text-decoration: underline;
+
+}
+li{
+    list-style:none;
+}
+li:hover{
+    color:white;
+    background: #008CBA;
+    text-decoration: underline;
+
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-right: 10px;
+
+}
+.main_container{
+    display: flex;
+}
+
+aside{
+ margin-right: 10%;
+ border-right-style: solid;
+ padding-right:20px;
+}
+main{
+    margin-left: 10%
+}
+button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+  }

@@ -1,0 +1,16 @@
+{
+  "dogs": [
+    {
+      "image": "https://images.dog.ceo/breeds/mountain-bernese/n02107683_1417.jpg",
+      "id": 1
+    },
+    {
+      "image": "https://images.dog.ceo/breeds/dachshund/Stretched_Dachshund.jpg",
+      "id": 2
+    },
+    {
+      "image": "https://images.dog.ceo/breeds/terrier-wheaten/n02098105_1998.jpg",
+      "id": 3
+    }
+  ]
+}

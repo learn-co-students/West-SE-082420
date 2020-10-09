@@ -1,0 +1,22 @@
+{
+  "allCats": [
+    {
+      "name": "Mittens",
+      "image": "https://i.pinimg.com/originals/89/9e/71/899e7132fd5125067051104e5e3e3073.jpg",
+      "catchphrase": "Mitten like to mitten my mittens are warm ",
+      "id": 6
+    },
+    {
+      "name": "Party Cat",
+      "image": "https://i.kym-cdn.com/entries/icons/facebook/000/005/517/party-cat-party-time.jpg\"",
+      "catchphrase": "Party on Party Cat hard",
+      "id": 9
+    },
+    {
+      "name": "Jinniie",
+      "image": "https://coleandmarmalade.com/wp-content/uploads/2018/05/1-birthday.jpg",
+      "catchphrase": "I just really like Dota2  :)",
+      "id": 10
+    }
+  ]
+}

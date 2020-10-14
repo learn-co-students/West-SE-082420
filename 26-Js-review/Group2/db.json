@@ -19,7 +19,9 @@
       ],
       "comments": [
         "Good Book",
-        "Loved it"
+        "Loved it",
+        "boook",
+        "I like books"
       ]
     },
     {
@@ -45,9 +47,13 @@
         {
           "id": 1,
           "username": "pouros"
+        },
+        {
+          "id": 1,
+          "username": "Rose"
         }
       ],
-      "comments": [  
+      "comments": [
         "I have no plans to read this",
         "extraordinary!"
       ]
@@ -67,6 +73,10 @@
         {
           "id": 9,
           "username": "alex"
+        },
+        {
+          "id": 1,
+          "username": "Rose"
         }
       ],
       "comments": []
@@ -232,6 +242,10 @@
         {
           "id": 10,
           "username": "macejkovic"
+        },
+        {
+          "id": 1,
+          "username": "Rose"
         }
       ],
       "comments": []

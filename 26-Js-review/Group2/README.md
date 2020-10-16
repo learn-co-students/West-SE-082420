@@ -26,8 +26,10 @@ You will be using the following backend to get the list of books. The expectatio
 
 - [x] Get a list of books & render them
   `http://localhost:3000/books`
+
 - [x] Be able to click on a book, you should see the book's thumbnail and description and a list of users who have liked the book.
 - You can like a book by clicking on a button. You are user 1 `{"id":1, "username":"Rose"}`, so to like a book send a `PATCH` request to `http://localhost:3000/books/:id` with an array of users who like the book. This array should be equal to the existing array of users that like the book, plus your user. For example, if the previous array was `"[{"id":2, "username":"auer"}, {"id":8, "username":"maverick"}]`, you should send as the body of your PATCH request:
+
 
 ```javascript
 {

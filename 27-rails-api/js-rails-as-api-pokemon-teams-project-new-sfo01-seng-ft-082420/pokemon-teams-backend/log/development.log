@@ -1,0 +1,995 @@
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTrainers (20201016205158)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "trainers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201016205158"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePokemons (20201016205230)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "pokemons" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "species" varchar, "nickname" varchar, "trainer_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_cb73098d36"
+FOREIGN KEY ("trainer_id")
+  REFERENCES "trainers" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_pokemons_on_trainer_id" ON "pokemons" ("trainer_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201016205230"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-10-16 20:53:14.261008"], ["updated_at", "2020-10-16 20:53:14.261008"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTrainer Destroy (0.1ms)[0m  [1m[31mDELETE FROM "trainers"[0m
+  [1m[36mPokemon Destroy (0.1ms)[0m  [1m[31mDELETE FROM "pokemons"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.4ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Ix"], ["created_at", "2020-10-16 20:54:43.682750"], ["updated_at", "2020-10-16 20:54:43.682750"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.3ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Hal"], ["created_at", "2020-10-16 20:54:43.686613"], ["updated_at", "2020-10-16 20:54:43.686613"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.3ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Rose"], ["created_at", "2020-10-16 20:54:43.689720"], ["updated_at", "2020-10-16 20:54:43.689720"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Adam"], ["created_at", "2020-10-16 20:54:43.692891"], ["updated_at", "2020-10-16 20:54:43.692891"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.3ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Emiley"], ["created_at", "2020-10-16 20:54:43.695557"], ["updated_at", "2020-10-16 20:54:43.695557"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.3ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Lantz"], ["created_at", "2020-10-16 20:54:43.699081"], ["updated_at", "2020-10-16 20:54:43.699081"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.4ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "David"], ["created_at", "2020-10-16 20:54:43.702449"], ["updated_at", "2020-10-16 20:54:43.702449"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.4ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Cody"], ["created_at", "2020-10-16 20:54:43.706327"], ["updated_at", "2020-10-16 20:54:43.706327"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Create (0.2ms)[0m  [1m[32mINSERT INTO "trainers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Justin"], ["created_at", "2020-10-16 20:54:43.710280"], ["updated_at", "2020-10-16 20:54:43.710280"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.6ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Ninetales"], ["nickname", "Jackson"], ["trainer_id", 1], ["created_at", "2020-10-16 20:54:44.789328"], ["updated_at", "2020-10-16 20:54:44.789328"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Pidgey"], ["nickname", "Zenaida"], ["trainer_id", 1], ["created_at", "2020-10-16 20:54:44.793817"], ["updated_at", "2020-10-16 20:54:44.793817"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Doduo"], ["nickname", "Margarete"], ["trainer_id", 2], ["created_at", "2020-10-16 20:54:44.798444"], ["updated_at", "2020-10-16 20:54:44.798444"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Dratini"], ["nickname", "Nelia"], ["trainer_id", 2], ["created_at", "2020-10-16 20:54:44.803919"], ["updated_at", "2020-10-16 20:54:44.803919"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Seaking"], ["nickname", "Ambrose"], ["trainer_id", 2], ["created_at", "2020-10-16 20:54:44.808762"], ["updated_at", "2020-10-16 20:54:44.808762"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Poliwag"], ["nickname", "Odis"], ["trainer_id", 2], ["created_at", "2020-10-16 20:54:44.812530"], ["updated_at", "2020-10-16 20:54:44.812530"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Omanyte"], ["nickname", "Arnold"], ["trainer_id", 2], ["created_at", "2020-10-16 20:54:44.817269"], ["updated_at", "2020-10-16 20:54:44.817269"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Cubone"], ["nickname", "Trang"], ["trainer_id", 3], ["created_at", "2020-10-16 20:54:44.822630"], ["updated_at", "2020-10-16 20:54:44.822630"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Machoke"], ["nickname", "Shella"], ["trainer_id", 3], ["created_at", "2020-10-16 20:54:44.828452"], ["updated_at", "2020-10-16 20:54:44.828452"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Mr. Mime"], ["nickname", "Eugenio"], ["trainer_id", 3], ["created_at", "2020-10-16 20:54:44.833070"], ["updated_at", "2020-10-16 20:54:44.833070"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Exeggutor"], ["nickname", "Tamica"], ["trainer_id", 3], ["created_at", "2020-10-16 20:54:44.837425"], ["updated_at", "2020-10-16 20:54:44.837425"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Mew"], ["nickname", "Elia"], ["trainer_id", 4], ["created_at", "2020-10-16 20:54:44.841868"], ["updated_at", "2020-10-16 20:54:44.841868"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Pidgeot"], ["nickname", "Sterling"], ["trainer_id", 4], ["created_at", "2020-10-16 20:54:44.846942"], ["updated_at", "2020-10-16 20:54:44.846942"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Cubone"], ["nickname", "Kathern"], ["trainer_id", 4], ["created_at", "2020-10-16 20:54:44.853602"], ["updated_at", "2020-10-16 20:54:44.853602"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Weezing"], ["nickname", "Carry"], ["trainer_id", 4], ["created_at", "2020-10-16 20:54:44.859340"], ["updated_at", "2020-10-16 20:54:44.859340"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Parasect"], ["nickname", "Janelle"], ["trainer_id", 4], ["created_at", "2020-10-16 20:54:44.869033"], ["updated_at", "2020-10-16 20:54:44.869033"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Horsea"], ["nickname", "Graham"], ["trainer_id", 4], ["created_at", "2020-10-16 20:54:44.877394"], ["updated_at", "2020-10-16 20:54:44.877394"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Alakazam"], ["nickname", "Ezra"], ["trainer_id", 5], ["created_at", "2020-10-16 20:54:44.882427"], ["updated_at", "2020-10-16 20:54:44.882427"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Mr. Mime"], ["nickname", "Chance"], ["trainer_id", 5], ["created_at", "2020-10-16 20:54:44.887940"], ["updated_at", "2020-10-16 20:54:44.887940"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Arcanine"], ["nickname", "Armando"], ["trainer_id", 5], ["created_at", "2020-10-16 20:54:44.892408"], ["updated_at", "2020-10-16 20:54:44.892408"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Jynx"], ["nickname", "Mayra"], ["trainer_id", 6], ["created_at", "2020-10-16 20:54:44.897461"], ["updated_at", "2020-10-16 20:54:44.897461"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.5ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Raticate"], ["nickname", "Karren"], ["trainer_id", 6], ["created_at", "2020-10-16 20:54:44.903260"], ["updated_at", "2020-10-16 20:54:44.903260"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Squirtle"], ["nickname", "Cristy"], ["trainer_id", 6], ["created_at", "2020-10-16 20:54:44.909603"], ["updated_at", "2020-10-16 20:54:44.909603"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Porygon"], ["nickname", "Earl"], ["trainer_id", 6], ["created_at", "2020-10-16 20:54:44.915149"], ["updated_at", "2020-10-16 20:54:44.915149"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Kadabra"], ["nickname", "Lorie"], ["trainer_id", 6], ["created_at", "2020-10-16 20:54:44.923879"], ["updated_at", "2020-10-16 20:54:44.923879"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Dragonite"], ["nickname", "Pierre"], ["trainer_id", 6], ["created_at", "2020-10-16 20:54:44.930162"], ["updated_at", "2020-10-16 20:54:44.930162"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Bulbasaur"], ["nickname", "Noe"], ["trainer_id", 7], ["created_at", "2020-10-16 20:54:44.936405"], ["updated_at", "2020-10-16 20:54:44.936405"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Pikachu"], ["nickname", "Mary"], ["trainer_id", 7], ["created_at", "2020-10-16 20:54:44.940545"], ["updated_at", "2020-10-16 20:54:44.940545"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Farfetch'd"], ["nickname", "Yung"], ["trainer_id", 8], ["created_at", "2020-10-16 20:54:44.945253"], ["updated_at", "2020-10-16 20:54:44.945253"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Tentacool"], ["nickname", "Sherry"], ["trainer_id", 9], ["created_at", "2020-10-16 20:54:44.950627"], ["updated_at", "2020-10-16 20:54:44.950627"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Slowbro"], ["nickname", "Brendan"], ["trainer_id", 9], ["created_at", "2020-10-16 20:54:44.956243"], ["updated_at", "2020-10-16 20:54:44.956243"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPokemon Create (0.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Mew"], ["nickname", "Youlanda"], ["trainer_id", 9], ["created_at", "2020-10-16 20:54:44.960917"], ["updated_at", "2020-10-16 20:54:44.960917"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" ORDER BY "trainers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" ORDER BY "trainers"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ? LIMIT ?[0m  [["trainer_id", 1], ["LIMIT", 11]]
+Started GET "/trainers" for ::1 at 2020-10-16 13:59:09 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.4ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+Completed 200 OK in 9ms (Views: 4.6ms | ActiveRecord: 0.7ms | Allocations: 6076)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:06:33 -0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.3ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.53ms)
+Completed 200 OK in 19ms (Views: 15.3ms | ActiveRecord: 0.6ms | Allocations: 8439)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:07:04 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.79ms)
+Completed 200 OK in 33ms (Views: 29.2ms | ActiveRecord: 1.7ms | Allocations: 27706)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:10:29 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.86ms)
+Completed 200 OK in 45ms (Views: 43.3ms | ActiveRecord: 1.0ms | Allocations: 16630)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:12:19 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.09ms)
+Completed 200 OK in 33ms (Views: 31.4ms | ActiveRecord: 1.0ms | Allocations: 16633)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:14:14 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.83ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.9ms | Allocations: 16631)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:14:36 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (28.07ms)
+Completed 200 OK in 29ms (Views: 28.3ms | ActiveRecord: 1.0ms | Allocations: 16611)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:19:59 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (40.81ms)
+Completed 200 OK in 44ms (Views: 42.2ms | ActiveRecord: 1.4ms | Allocations: 16614)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:20:18 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.63ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 1.2ms | Allocations: 16611)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:20:32 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.16ms)
+Completed 200 OK in 31ms (Views: 30.0ms | ActiveRecord: 1.1ms | Allocations: 16614)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:21:26 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.4ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 1.0ms | Allocations: 16611)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:25:50 -0700
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.3ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.91ms)
+Completed 200 OK in 43ms (Views: 37.4ms | ActiveRecord: 2.8ms | Allocations: 25185)
+
+
+Started POST "/pokemons" for ::1 at 2020-10-16 14:25:52 -0700
+Processing by PokemonsController#create as */*
+  Parameters: {"trainer_id"=>1, "pokemon"=>{"trainer_id"=>1}}
+Completed 204 No Content in 188757ms (ActiveRecord: 0.0ms | Allocations: 53770)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:29:07 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.6ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.96ms)
+Completed 200 OK in 53ms (Views: 46.5ms | ActiveRecord: 3.0ms | Allocations: 25190)
+
+
+Started POST "/pokemons" for ::1 at 2020-10-16 14:29:08 -0700
+Processing by PokemonsController#create as */*
+  Parameters: {"trainer_id"=>1, "pokemon"=>{"trainer_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mPokemon Create (1.2ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Graveler"], ["nickname", "Nathanael"], ["trainer_id", 1], ["created_at", "2020-10-16 21:29:08.260817"], ["updated_at", "2020-10-16 21:29:08.260817"]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Pokemon (0.17ms)
+Completed 200 OK in 170ms (Views: 2.2ms | ActiveRecord: 1.9ms | Allocations: 203307)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:29:28 -0700
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (57.38ms)
+Completed 200 OK in 75ms (Views: 68.0ms | ActiveRecord: 2.3ms | Allocations: 29335)
+
+
+Started POST "/pokemons" for ::1 at 2020-10-16 14:29:29 -0700
+Processing by PokemonsController#create as */*
+  Parameters: {"trainer_id"=>1, "pokemon"=>{"trainer_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Venonat"], ["nickname", "Jordon"], ["trainer_id", 1], ["created_at", "2020-10-16 21:29:30.120053"], ["updated_at", "2020-10-16 21:29:30.120053"]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Pokemon (0.29ms)
+Completed 200 OK in 9559ms (Views: 2.5ms | ActiveRecord: 1.3ms | Allocations: 269676)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:29:42 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.18ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 1.0ms | Allocations: 16927)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:31:48 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.35ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 1.0ms | Allocations: 16927)
+
+
+Started POST "/pokemons" for ::1 at 2020-10-16 14:31:51 -0700
+Processing by PokemonsController#create as */*
+  Parameters: {"trainer_id"=>3, "pokemon"=>{"trainer_id"=>3}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Psyduck"], ["nickname", "Werner"], ["trainer_id", 3], ["created_at", "2020-10-16 21:31:51.021638"], ["updated_at", "2020-10-16 21:31:51.021638"]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Pokemon (0.26ms)
+Completed 200 OK in 13397ms (Views: 1.6ms | ActiveRecord: 2.2ms | Allocations: 6528)
+
+
+Started POST "/pokemons" for ::1 at 2020-10-16 14:32:04 -0700
+Started POST "/pokemons" for ::1 at 2020-10-16 14:32:04 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PokemonsController#create as */*
+Processing by PokemonsController#create as */*
+  Parameters: {"trainer_id"=>3, "pokemon"=>{"trainer_id"=>3}}
+  Parameters: {"trainer_id"=>3, "pokemon"=>{"trainer_id"=>3}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Raichu"], ["nickname", "Shane"], ["trainer_id", 3], ["created_at", "2020-10-16 21:32:04.436900"], ["updated_at", "2020-10-16 21:32:04.436900"]]
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Flareon"], ["nickname", "Aubrey"], ["trainer_id", 3], ["created_at", "2020-10-16 21:32:04.435868"], ["updated_at", "2020-10-16 21:32:04.435868"]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.5ms | Allocations: 7487)
+
+
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  
+ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked):
+  
+app/controllers/pokemons_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Pokemon (0.33ms)
+Completed 200 OK in 1570ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 906834)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:32:44 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.43ms)
+Completed 200 OK in 30ms (Views: 25.5ms | ActiveRecord: 2.0ms | Allocations: 25780)
+
+
+Started POST "/pokemons" for ::1 at 2020-10-16 14:32:45 -0700
+Processing by PokemonsController#create as */*
+  Parameters: {"trainer_id"=>1, "pokemon"=>{"trainer_id"=>1}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mPokemon Create (0.4ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Psyduck"], ["nickname", "Jenelle"], ["trainer_id", 1], ["created_at", "2020-10-16 21:32:45.889261"], ["updated_at", "2020-10-16 21:32:45.889261"]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Pokemon (0.18ms)
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 1.2ms | Allocations: 4653)
+
+
+Started POST "/pokemons" for ::1 at 2020-10-16 14:32:52 -0700
+Processing by PokemonsController#create as */*
+  Parameters: {"trainer_id"=>5, "pokemon"=>{"trainer_id"=>5}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Dragonite"], ["nickname", "Elisha"], ["trainer_id", 5], ["created_at", "2020-10-16 21:32:52.930181"], ["updated_at", "2020-10-16 21:32:52.930181"]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Pokemon (0.2ms)
+Completed 200 OK in 23ms (Views: 18.4ms | ActiveRecord: 1.3ms | Allocations: 7416)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:33:26 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.31ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 1.1ms | Allocations: 17501)
+
+
+Started POST "/pokemons" for ::1 at 2020-10-16 14:33:29 -0700
+Processing by PokemonsController#create as */*
+  Parameters: {"trainer_id"=>5, "pokemon"=>{"trainer_id"=>5}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers" WHERE "trainers"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[36mPokemon Create (0.3ms)[0m  [1m[32mINSERT INTO "pokemons" ("species", "nickname", "trainer_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["species", "Alakazam"], ["nickname", "Calvin"], ["trainer_id", 5], ["created_at", "2020-10-16 21:33:29.651566"], ["updated_at", "2020-10-16 21:33:29.651566"]]
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:11:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Pokemon (0.17ms)
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.2ms | Allocations: 4130)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:38:24 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (52.24ms)
+Completed 200 OK in 61ms (Views: 56.6ms | ActiveRecord: 2.1ms | Allocations: 26182)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:39:25 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (25.95ms)
+Completed 200 OK in 38ms (Views: 33.3ms | ActiveRecord: 2.5ms | Allocations: 26229)
+
+
+Started DELETE "/pokemons/2" for ::1 at 2020-10-16 14:39:28 -0700
+Processing by PokemonsController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:16:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[36mPokemon Destroy (1.1ms)[0m  [1m[31mDELETE FROM "pokemons" WHERE "pokemons"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 200 OK in 4147ms (Views: 0.6ms | ActiveRecord: 1.8ms | Allocations: 4648)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:39:37 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (20.73ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 1.3ms | Allocations: 17501)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:41:24 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.39ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 1.2ms | Allocations: 17501)
+
+
+Started DELETE "/pokemons/1" for ::1 at 2020-10-16 14:41:27 -0700
+Processing by PokemonsController#destroy as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:16:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[36mPokemon Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pokemons" WHERE "pokemons"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 3588ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 4311)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:42:50 -0700
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.2ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (31.54ms)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 2.1ms | Allocations: 25887)
+
+
+Started DELETE "/pokemons/33" for ::1 at 2020-10-16 14:42:52 -0700
+Processing by PokemonsController#destroy as */*
+  Parameters: {"id"=>"33"}
+  [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:16:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[36mPokemon Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pokemons" WHERE "pokemons"."id" = ?[0m  [["id", 33]]
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 2797)
+
+
+Started GET "/trainers" for ::1 at 2020-10-16 14:43:24 -0700
+Processing by TrainersController#index as */*
+  [1m[36mTrainer Load (0.1ms)[0m  [1m[34mSELECT "trainers".* FROM "trainers"[0m
+  ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 1]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 2]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 3]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 4]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 5]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 6]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.2ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 7]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 8]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers]   [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."trainer_id" = ?[0m  [["trainer_id", 9]]
+[active_model_serializers]   ↳ app/controllers/trainers_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (20.17ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 1.3ms | Allocations: 17204)
+
+
+Started DELETE "/pokemons/13" for ::1 at 2020-10-16 14:43:33 -0700
+Processing by PokemonsController#destroy as */*
+  Parameters: {"id"=>"13"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:16:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[36mPokemon Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pokemons" WHERE "pokemons"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 2528)
+
+
+Started DELETE "/pokemons/15" for ::1 at 2020-10-16 14:43:35 -0700
+Processing by PokemonsController#destroy as */*
+  Parameters: {"id"=>"15"}
+  [1m[36mPokemon Load (0.1ms)[0m  [1m[34mSELECT "pokemons".* FROM "pokemons" WHERE "pokemons"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/pokemons_controller.rb:16:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[36mPokemon Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pokemons" WHERE "pokemons"."id" = ?[0m  [["id", 15]]
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/pokemons_controller.rb:17:in `destroy'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 2528)
+
+

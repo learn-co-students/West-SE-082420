@@ -1,0 +1,22 @@
+{
+  "allCats": [
+    {
+      "name": "Mittens",
+      "image": "https://i.pinimg.com/originals/89/9e/71/899e7132fd5125067051104e5e3e3073.jpg",
+      "catchphrase": "Party cat likes to party",
+      "id": 6
+    },
+    {
+      "name": "Tod",
+      "image": "https://i.ytimg.com/vi/h6ExCwtgGe8/maxresdefault.jpg",
+      "catchphrase": "I'm a DJ",
+      "id": 7
+    },
+    {
+      "name": "Party Cat",
+      "image": "https://i.kym-cdn.com/entries/icons/facebook/000/005/517/party-cat-party-time.jpg\"",
+      "catchphrase": "Party on Party Cat",
+      "id": 9
+    }
+  ]
+}

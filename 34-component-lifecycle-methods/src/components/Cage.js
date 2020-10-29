@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 
 class Cage extends Component {
   constructor() {
@@ -9,7 +9,15 @@ class Cage extends Component {
   }
 
   // TODO: MAKE THE CAGE MOVE EVERY SECOND
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      this.move();
+    }, 1000);
+  }
   
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
 
   // CALL THIS EVERY SECOND TO MOVE THE CAGE
   move = () => {

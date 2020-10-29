@@ -37,7 +37,7 @@ Show all of the pets by default (without needing to click anything).
 
 Modify the app so that the filters change which pets are showing without re-fetching.
 
-### Randomly Adopt a Pet Every 5 seconds
+### Randomly Adopt a Pet Every 2 seconds
 Make it look like other users are on the website adopting Pets.
 
 Every 2 seconds, set a pet's isAdopted value to true. It doesn't matter if the pet is already adopted.

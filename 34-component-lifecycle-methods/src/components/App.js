@@ -19,6 +19,13 @@ class App extends React.Component {
   }
 
   // TODO: SET STATE WITH ONE FETCH
+  componentDidMount() {
+    const endpoint = '/api/pets';
+
+    fetch(endpoint)
+    .then(res => res.json())
+    .then(pets => this.setState({ pets, filteredPets: pets }));
+  }
 
 
   onChangeType = (e) => {
@@ -27,19 +34,30 @@ class App extends React.Component {
 
   // TODO: MODIFY TO CHOOSE THE PET TYPE FROM PETS AND UPDATE FILTERED PETS
   onFindPetsClick = () => {
-    const domain = '/api/pets';
+    // const domain = '/api/pets';
     const filterType = this.state.filters.type;
-    const endpoint = filterType === 'all' ? domain : `${domain}?type=${filterType}`;
+    // const endpoint = filterType === 'all' ? domain : `${domain}?type=${filterType}`;
 
-    fetch(endpoint)
-    .then(res => res.json())
-    .then(pets => this.setState({ pets }));
+    // fetch(endpoint)
+    // .then(res => res.json())
+    // .then(pets => this.setState({ pets }));
+    let filteredPets;
+
+    if (filterType === 'all') {
+      filteredPets = [...this.state.pets];
+    } else {
+      filteredPets = this.state.pets.filter(pet => pet.type === filterType);
+    }
+
+    this.setState({ filteredPets: filteredPets});
+
+    // this.setState({ filteredPets: this.state.pets.filter(pet => filterType === 'all' ? true : pet.type === filterType) });
   };
 
   // TODO: MODIFY TO UPDATE THE FILTERED PET
   onAdoptPet = (id) => {
     // update pet in state to isAdopted: true
-    this.setState({ pets: this.state.pets.map(pet => pet.id === id ? {...pet, isAdopted: true} : pet) });
+    this.setState({ filteredPets: this.state.filteredPets.map(pet => pet.id === id ? {...pet, isAdopted: true} : pet) });
   };
 
   setCaged = () => {
@@ -64,7 +82,7 @@ class App extends React.Component {
               </button>
             </div>
             <div className="twelve wide column">
-              <PetBrowser pets={this.state.pets} onAdoptPet={this.onAdoptPet} />
+              <PetBrowser pets={this.state.filteredPets} onAdoptPet={this.onAdoptPet} /* filter={this.state.filters.type} */ />
             </div>
           </div>
         </div>

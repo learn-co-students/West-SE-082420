@@ -1,10 +1,10 @@
 import React from "react";
 
-const CharacterCard = props => {
-  
+const CharacterCard = ({ character, handleClick }) => {
   return (
-    <div className='card' >
-      CharacterCard
+    <div className="card" onClick={() => handleClick(character)}>
+      <h1>{character.name}</h1>
+      <img src={character.image} alt={character.name} />
     </div>
   );
 };

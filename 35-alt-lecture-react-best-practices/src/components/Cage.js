@@ -15,7 +15,7 @@ class Cage extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer);
+    console.log('hi')
   }
 
   // CALL THIS EVERY SECOND TO MOVE THE CAGE

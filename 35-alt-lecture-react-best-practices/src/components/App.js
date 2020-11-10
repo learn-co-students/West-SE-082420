@@ -1,5 +1,5 @@
 import Filters from './Filters';
-import PetBrowser from './PetBrowser';
+import PetBrowser from './pet/PetBrowser';
 import React from 'react';
 import Cage from './Cage';
 
